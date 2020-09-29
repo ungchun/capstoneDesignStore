@@ -9,13 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // 요부분 아무거나 타이핑 고고
-      title: 'asdasdasd',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
@@ -30,39 +24,36 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("1111"),
+        title: Text("주문목록"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇ',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("ㅁㅁ"),
+          Text("ㅁㅁ"),
+          Text("ㅁㅁ"),
+          Text("ㅁㅁ"),
+          Text("ㅁㅁ"),
+          Text("ㅁㅁ"),
+          Text("ㅁㅁ"),
+          Row(
+            children: [
+              Container(
+                child: Text(
+                  "안녕",
+                  style: TextStyle(color: Colors.red, fontSize: 50),
+                ),
+              ),
+              Container(child: Text("김성훈입니다")),
+            ],
+          ),
+          Text("ㅁㅁ"),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
