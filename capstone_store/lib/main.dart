@@ -1,8 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
+
+// void main() {
+//   runApp(MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -24,6 +32,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  // firestore 데이터 읽어오기 test
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  void test() {
+    String title = "";
+    firestore.collection("test").doc("1").get().then((DocumentSnapshot ds) {
+      title = ds.data()['name'];
+      print("asd " + title);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          FloatingActionButton(
+            onPressed: () {
+              test();
+            },
+          ),
           Text("ㅁㅁ"),
           Text("ㅁㅁ"),
           Text("ㅁㅁ"),
