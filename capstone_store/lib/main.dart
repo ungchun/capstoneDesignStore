@@ -1,4 +1,4 @@
-import 'package:capstone_store/src/home.dart';
+import 'package:capstone_store/order/order_state.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,5 +7,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => Home_Display();
+  Widget build(BuildContext context) {
+    return MaterialApp(home: Order_State());
   }
+}
