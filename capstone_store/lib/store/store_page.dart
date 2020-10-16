@@ -11,10 +11,35 @@ class _Store_PageState extends State<Store_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Container(
-        child: Row(children: <Widget>[
-          Column(children: <Widget>[
+      body: 
+      // Padding(
+      //   padding: const EdgeInsets.fromLTRB(0,50,0,0),
+      //   child: Column(
+      //     children: [
+      //       Row(
+      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //         children: [
+      //           Padding(
+      //             padding: const EdgeInsets.fromLTRB(10,0,0,0),
+      //             child: Text(
+      //               "test",
+      //               style: TextStyle(fontSize: 50),
+      //             ),
+      //           ),
+      //           Padding(
+      //             padding: const EdgeInsets.fromLTRB(0,0,10,0),
+      //             child: Icon(Icons.call_end),
+      //           ),
+      //         ],
+      //       ),
+      //     ],
+      //   ),
+      // ),
+
+    
+        Container(
+        child: Column(children: <Widget>[
+          Row(children: <Widget>[
             Padding(padding: EdgeInsets.fromLTRB(44, 25, 0, 0)),
             Icon(Icons.call_end),
             Text(
@@ -23,7 +48,8 @@ class _Store_PageState extends State<Store_Page> {
             ),
           ]),
         ]),
-      )),
+      ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: _increase_order_counter,
         tooltip: 'increase',
