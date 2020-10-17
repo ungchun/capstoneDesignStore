@@ -13,22 +13,22 @@ class _Store_PageState extends State<Store_Page> {
     return Scaffold(
       body: Center(
           child: Container(
-        child: Row(children: <Widget>[
-          Column(children: <Widget>[
-            Padding(padding: EdgeInsets.fromLTRB(44, 25, 0, 0)),
-            Icon(Icons.call_end),
-            Text(
-              '오늘 주문 받은 량 : $_order_counter',
-              style: TextStyle(color: Colors.black, fontSize: 25),
-            ),
-          ]),
-        ]),
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
+                Text(
+                  '오늘 주문 받은 량 : $_order_counter',
+                  style: TextStyle(color: Colors.black, fontSize: 25),
+                ),
+                Padding(padding: EdgeInsets.fromLTRB(0, 25, 15, 25)),
+                IconButton(
+                    icon: Icon(Icons.call_end),
+                    onPressed: _increase_order_counter),
+                Padding(padding: EdgeInsets.fromLTRB(0, 25, 50, 25)),
+              ]),
+            ]),
       )),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _increase_order_counter,
-        tooltip: 'increase',
-        child: Icon(Icons.add),
-      ),
     );
   }
 
