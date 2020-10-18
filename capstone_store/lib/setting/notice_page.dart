@@ -9,14 +9,20 @@ class _Notice_PageState extends State<Notice_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          '공지사항',
-          style: TextStyle(fontSize: 25),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            '공지사항',
+            style: TextStyle(fontSize: 25),
+          ),
         ),
-      ),
-      body: Text('Notice_Page'),
-    );
+        body: ListView(
+          children: [
+            ListTile(
+              leading: Icon(Icons.accessibility),
+              title: Text('man'),
+            )
+          ],
+        ));
   }
 }

@@ -86,7 +86,7 @@ class _Setting_PageState extends State<Setting_Page> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.access_time),
+                  Icon(Icons.add_alert),
                   Text('알림', style: TextStyle(fontSize: 20)),
                   Padding(
                     padding: EdgeInsets.only(left: 215),

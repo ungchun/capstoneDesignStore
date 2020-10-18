@@ -11,6 +11,13 @@ class _Store_PageState extends State<Store_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          '가게 상황',
+          style: TextStyle(fontSize: 25),
+        ),
+      ),
       body: Center(
           child: Container(
         child: Column(

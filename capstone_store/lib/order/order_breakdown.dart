@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Simple_Breakdown extends StatefulWidget {
-  Simple_Breakdown(
+class Breakdown extends StatefulWidget {
+  Breakdown(
       {Key key,
       this.customer,
       this.sum_price,
@@ -13,10 +13,10 @@ class Simple_Breakdown extends StatefulWidget {
   final String order_time;
   final List<String> order_list;
   @override
-  _Simple_BreakdownState createState() => _Simple_BreakdownState();
+  _BreakdownState createState() => _BreakdownState();
 }
 
-class _Simple_BreakdownState extends State<Simple_Breakdown> {
+class _BreakdownState extends State<Breakdown> {
   @override
   Widget build(BuildContext context) {
     return Container(
