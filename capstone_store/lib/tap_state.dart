@@ -1,4 +1,5 @@
 import 'package:capstone_store/%EB%B0%9B%EC%9D%80%EA%B1%B0.dart';
+import 'package:capstone_store/order/order_List.dart';
 import 'package:capstone_store/order/order_page.dart';
 import 'package:capstone_store/store/store_page.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class Tap_Page extends StatefulWidget {
 class _Tap_PageState extends State<Tap_Page> {
   int _selectedIndex = 0;
 
-  List _pages = [Store_Page(), MyinfoWidget(), Setting_Page()];
+  List _pages = [Store_Page(), Order_List(), Setting_Page()];
 
   @override
   Widget build(BuildContext context) {
