@@ -9,6 +9,7 @@ class _Insert_BreakdownState extends State<Insert_Breakdown> {
   final myController = TextEditingController();
   final myController1 = TextEditingController();
   final myController2 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,29 +22,30 @@ class _Insert_BreakdownState extends State<Insert_Breakdown> {
           ),
         ),
       ),
-      body: Column(
+      body: SingleChildScrollView(
+          child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            margin: EdgeInsets.all(8),
+            margin: EdgeInsets.all(40),
             child: TextField(
               controller: myController,
             ),
           ),
           Container(
-            margin: EdgeInsets.all(8),
+            margin: EdgeInsets.all(40),
             child: TextField(
               controller: myController1,
             ),
           ),
           Container(
-            margin: EdgeInsets.all(8),
+            margin: EdgeInsets.all(40),
             child: TextField(
               controller: myController2,
             ),
           ),
         ],
-      ),
+      )),
       floatingActionButton: FloatingActionButton(onPressed: () {
         insert(myController.toString(), myController1.toString(),
             myController2.toString());
