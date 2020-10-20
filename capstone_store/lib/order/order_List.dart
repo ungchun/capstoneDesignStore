@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-
 class Order_List extends StatefulWidget {
   @override
   _Order_ListState createState() => _Order_ListState();
@@ -12,18 +11,21 @@ class Order_List extends StatefulWidget {
 class _Order_ListState extends State<Order_List> {
   Stream stream;
 
-
-@override
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
-    stream = FirebaseFirestore.instance.collection('order').orderBy('주문시간',descending: false).snapshots();
+    stream = FirebaseFirestore.instance
+        .collection('order')
+        .orderBy('주문시간', descending: false)
+        .snapshots();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-              body: StreamBuilder<QuerySnapshot>(
+        body: StreamBuilder<QuerySnapshot>(
             stream: stream,
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
