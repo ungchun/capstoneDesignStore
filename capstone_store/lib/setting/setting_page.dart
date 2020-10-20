@@ -28,7 +28,7 @@ class _Setting_PageState extends State<Setting_Page> {
               color: Colors.grey[250],
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(60, 3, 10, 3),
+              padding: EdgeInsets.fromLTRB(40, 3, 10, 3),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -55,7 +55,7 @@ class _Setting_PageState extends State<Setting_Page> {
               color: Colors.grey[250],
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(60, 3, 10, 3),
+              padding: EdgeInsets.fromLTRB(40, 3, 10, 3),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -82,7 +82,7 @@ class _Setting_PageState extends State<Setting_Page> {
               color: Colors.grey[250],
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(60, 3, 10, 3),
+              padding: EdgeInsets.fromLTRB(40, 3, 10, 3),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -109,7 +109,7 @@ class _Setting_PageState extends State<Setting_Page> {
               color: Colors.grey[250],
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(60, 3, 10, 3),
+              padding: EdgeInsets.fromLTRB(40, 3, 10, 3),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

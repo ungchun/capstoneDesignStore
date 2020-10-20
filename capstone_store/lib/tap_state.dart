@@ -22,15 +22,16 @@ class _Tap_PageState extends State<Tap_Page> {
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
+          selectedItemColor: Colors.cyan,
           onTap: _onItemTapped,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.home), title: Text('Home')),
+                icon: Icon(Icons.home), title: Text('Home',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
             BottomNavigationBarItem(
                 icon: Icon(Icons.format_list_bulleted),
-                title: Text('Order List')),
+                title: Text('Order List',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), title: Text('Settings')),
+                icon: Icon(Icons.settings), title: Text('Settings',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)),
           ]),
     );
   }
