@@ -1,170 +1,119 @@
-import 'package:flutter/material.dart';
+// import 'package:capstone_customer/cafeinfo/cafeinfoWidget.dart';
+// import 'package:capstone_customer/orderlist/orderlistDetailInfo.dart';
+// import 'package:flutter/material.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
-class MyinfoWidget extends StatefulWidget {
-  @override
-  _MyinfoWidgetState createState() => _MyinfoWidgetState();
-}
+// class OrderListItem extends StatefulWidget {
+//   final QueryDocumentSnapshot doc;
+//   OrderListItem(this.doc);
 
-class _MyinfoWidgetState extends State<MyinfoWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          '내정보',
-          style: TextStyle(color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 40),
-              child: Center(
-                child: IconButton(
-                  icon: Icon(Icons.account_circle),
-                  color: Colors.black,
-                  iconSize: 100,
-                  onPressed: () {},
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                child: Text(
-                  "김성훈",
-                  style: TextStyle(fontSize: 30),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Center(
-                child: Container(
-                  child: Text(
-                    "계명대학교",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 3),
-              child: Center(
-                child: Container(
-                  child: Text(
-                    "5414030",
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.notifications_none),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => null));
-                        },
-                      ),
-                      Text("공지사항"),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.check_circle),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => null));
-                        },
-                      ),
-                      Text("이용안내"),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.settings),
-                        onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => null));
-                        },
-                      ),
-                      Text("App 설정"),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(60, 10, 10, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("고객센터"),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 35.0),
-                      child: IconButton(
-                        icon: Icon(Icons.keyboard_arrow_right),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 0.0),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(60, 10, 10, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("약관확인"),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 35.0),
-                      child: IconButton(
-                        icon: Icon(Icons.keyboard_arrow_right),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 0.0),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(60, 10, 10, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("기타"),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 35.0),
-                      child: IconButton(
-                        icon: Icon(Icons.keyboard_arrow_right),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   _OrderListItemState createState() => _OrderListItemState();
+// }
+
+// class _OrderListItemState extends State<OrderListItem> {
+//   // firestore 데이터 읽어오기 test
+//   FirebaseFirestore firestore = FirebaseFirestore.instance;
+//   int menuSize;
+//   int price = 0;
+//   String tempPrice = "";
+//   Stream stream;
+
+//   @override
+//   void initState() {
+//     // TODO: implement initState
+//     super.initState();
+//     menuSize = widget.doc.data()['menu'].length;
+
+//     for (int i = 0; i < menuSize; i++) {
+//       tempPrice = widget.doc.data()['price'][i];
+//       price += int.parse(tempPrice);
+//     }
+//     stream = FirebaseFirestore.instance
+//         .collection('cafe')
+//         .where('ID', isEqualTo: widget.doc.data()['cafeID'])
+//         .snapshots();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return StreamBuilder<QuerySnapshot>(
+//         stream: stream,
+//         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+//           if (snapshot.data == null) return new Text(""); // 이거 안넣어주면 오류남
+//           return Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             children: [
+//               // Divider(
+//               //   height: 30,
+//               //   thickness: 10,
+//               // ),
+//               Padding(
+//                 padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
+//                 child: Text(
+//                   "${widget.doc.data()['주문시간']}",
+//                   style: TextStyle(color: Colors.grey, fontSize: 10),
+//                 ),
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.fromLTRB(20, 2, 0, 0),
+//                 child: Text(
+//                   "${widget.doc.data()['카페이름']}",
+//                   style: TextStyle(
+//                       color: Colors.black,
+//                       fontSize: 30,
+//                       fontWeight: FontWeight.bold),
+//                 ),
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.fromLTRB(20, 2, 0, 0),
+//                 child: Text(
+//                   // "${widget.doc.data()['price']}",
+//                   "$price 원",
+//                   style: TextStyle(color: Colors.black),
+//                 ),
+//               ),
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.end,
+//                 children: [
+//                   Padding(
+//                     padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+//                     child: RaisedButton(
+//                       onPressed: () {
+//                         Navigator.push(
+//                             context,
+//                             MaterialPageRoute(
+//                                 builder: (context) =>
+//                                     CafeinfoWidget(snapshot.data.docs[0]))
+//                             // 위에 stream where 절에서 cafe를 걸렀기 때문에 배열안에는 1개밖에없다 doc[0] where 절에서 나온 cafe 정보
+//                             );
+//                         // print("가게보기 click");
+//                       },
+//                       child: Text("가게보기"),
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+//                     child: RaisedButton(
+//                       onPressed: () {
+//                         Navigator.push(
+//                             context,
+//                             MaterialPageRoute(
+//                                 builder: (context) =>
+//                                     OrderlistDetailInfo(widget.doc)));
+//                         // test();
+//                       },
+//                       child: Text("주문상세"),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//               Divider(
+//                 height: 30,
+//                 thickness: 10,
+//               ),
+//             ],
+//           );
+//         });
+//   }
+// }
