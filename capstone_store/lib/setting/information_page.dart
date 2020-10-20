@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Information_Page extends StatefulWidget {
+class InformationPage extends StatefulWidget {
   @override
-  _Information_PageState createState() => _Information_PageState();
+  _InformationPageState createState() => _InformationPageState();
 }
 
-class _Information_PageState extends State<Information_Page> {
+class _InformationPageState extends State<InformationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

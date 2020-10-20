@@ -19,7 +19,6 @@ class _OrderListItemState extends State<OrderListItem> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     menuSize = widget.doc.data()['menu'].length;
 
