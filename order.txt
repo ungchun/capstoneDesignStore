@@ -1,0 +1,21 @@
+customer_id 
+
+food count
+drink count
+
+sum_price
+
+
+
+=>
+
+customer_id		order_Time
+
+
+food list 1 2 3 		price
+drink list 1 2 3		price
+
+
+
+sum_price
+
