@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Insert_Breakdown extends StatefulWidget {
+class InsertBreakdown extends StatefulWidget {
   @override
-  _Insert_BreakdownState createState() => _Insert_BreakdownState();
+  _InsertBreakdownState createState() => _InsertBreakdownState();
 }
 
-class _Insert_BreakdownState extends State<Insert_Breakdown> {
+class _InsertBreakdownState extends State<InsertBreakdown> {
   final myController = TextEditingController();
   final myController1 = TextEditingController();
   final myController2 = TextEditingController();
@@ -46,12 +46,7 @@ class _Insert_BreakdownState extends State<Insert_Breakdown> {
           ),
         ],
       )),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        insert(myController.toString(), myController1.toString(),
-            myController2.toString());
-      }),
+      floatingActionButton: FloatingActionButton(onPressed: () {}),
     );
   }
-
-  Widget insert(String cumstomer, String sum_price, String order_time) {}
 }

@@ -1,14 +1,14 @@
-import 'package:capstone_store/order/insert_breakdown.dart';
 import 'package:flutter/material.dart';
 
+import 'insert_breakdown.dart';
 import 'order_list.dart';
 
-class Order_Page extends StatefulWidget {
+class OrderPage extends StatefulWidget {
   @override
-  _Order_PageState createState() => _Order_PageState();
+  _OrderPageState createState() => _OrderPageState();
 }
 
-class _Order_PageState extends State<Order_Page> {
+class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,11 +21,11 @@ class _Order_PageState extends State<Order_Page> {
           ),
         ),
       ),
-      body: Order_List(),
+      body: OrderList(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => Insert_Breakdown()));
+              MaterialPageRoute(builder: (context) => InsertBreakdown()));
         },
         child: Icon(Icons.add),
       ),

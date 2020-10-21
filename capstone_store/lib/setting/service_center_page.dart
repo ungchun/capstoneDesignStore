@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Service_Page extends StatefulWidget {
+class ServicePage extends StatefulWidget {
   @override
-  _Service_PageState createState() => _Service_PageState();
+  _ServicePageState createState() => _ServicePageState();
 }
 
-class _Service_PageState extends State<Service_Page> {
+class _ServicePageState extends State<ServicePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

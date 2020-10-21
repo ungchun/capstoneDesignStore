@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.brown[200],
         accentColor: Colors.pink,
       ),
-      home: Tap_Page(),
+      home: TapPage(),
     );
   }
 }

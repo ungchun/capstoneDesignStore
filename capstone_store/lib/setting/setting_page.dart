@@ -4,12 +4,12 @@ import 'package:capstone_store/setting/notice_page.dart';
 import 'package:capstone_store/setting/service_center_page.dart';
 import 'package:flutter/material.dart';
 
-class Setting_Page extends StatefulWidget {
+class SettingPage extends StatefulWidget {
   @override
-  _Setting_PageState createState() => _Setting_PageState();
+  _SettingPageState createState() => _SettingPageState();
 }
 
-class _Setting_PageState extends State<Setting_Page> {
+class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +42,7 @@ class _Setting_PageState extends State<Setting_Page> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Notice_Page()));
+                                  builder: (context) => NoticePage()));
                         }),
                   )
                 ],
@@ -69,7 +69,7 @@ class _Setting_PageState extends State<Setting_Page> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Information_Page()));
+                                  builder: (context) => InformationPage()));
                         }),
                   )
                 ],
@@ -96,7 +96,7 @@ class _Setting_PageState extends State<Setting_Page> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Alarm_Page()));
+                                  builder: (context) => AlarmPage()));
                         }),
                   )
                 ],
@@ -126,7 +126,7 @@ class _Setting_PageState extends State<Setting_Page> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Service_Page()));
+                                  builder: (context) => ServicePage()));
                         }),
                   )
                 ],

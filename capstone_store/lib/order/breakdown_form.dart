@@ -19,7 +19,6 @@ class _OrderListItemState extends State<OrderListItem> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     menuSize = widget.doc.data()['menu'].length;
 
@@ -53,14 +52,19 @@ class _OrderListItemState extends State<OrderListItem> {
                     padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
                     child: Text(
                       "회원 번호 : ${widget.doc.id}",
-                      style: TextStyle(color: Colors.grey, fontSize: 15, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.fromLTRB(0, 10, 20, 0),
-                  child: Text(
-                    '${widget.doc.data()['주문시간']}',
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                  ),)
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 10, 20, 0),
+                    child: Text(
+                      '${widget.doc.data()['주문시간']}',
+                      style: TextStyle(color: Colors.black, fontSize: 15),
+                    ),
+                  )
                 ],
               ),
               Padding(
@@ -88,11 +92,8 @@ class _OrderListItemState extends State<OrderListItem> {
                     padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                     child: RaisedButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    null));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => null));
                         // test();
                       },
                       child: Text("주문상세"),
@@ -166,4 +167,3 @@ class _OrderListItemState extends State<OrderListItem> {
 //     );
 //   }
 // }
-

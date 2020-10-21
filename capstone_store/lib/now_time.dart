@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-import 'dart:async';
 
-class Now_Time extends StatefulWidget {
+class NowTime extends StatefulWidget {
   @override
-  _Now_TimeState createState() => _Now_TimeState();
+  _NowTimeState createState() => _NowTimeState();
 }
 
-class _Now_TimeState extends State<Now_Time> {
+class _NowTimeState extends State<NowTime> {
   @override
   Widget build(BuildContext context) {
     return Container();
