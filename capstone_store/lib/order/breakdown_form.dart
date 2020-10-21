@@ -1,3 +1,4 @@
+import 'package:capstone_store/order/detail_breakdown.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -70,7 +71,7 @@ class _OrderListItemState extends State<OrderListItem> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 2, 0, 0),
                 child: Text(
-                  "${widget.doc.data()['카페이름']}",
+                  "${widget.doc.data()['menu']}",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 30,
@@ -92,8 +93,11 @@ class _OrderListItemState extends State<OrderListItem> {
                     padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                     child: RaisedButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => null));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Detailbreakdown(widget.doc.data())));
                         // test();
                       },
                       child: Text("주문상세"),
