@@ -1,3 +1,5 @@
+import 'package:capstone_store/locker/locker1_page.dart';
+import 'package:capstone_store/locker/locker2_page.dart';
 import 'package:flutter/material.dart';
 
 class Detailbreakdown extends StatefulWidget {
@@ -58,10 +60,11 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                     child: Container(
                       height: 130,
                       child: ListView.builder(
-                          itemCount: widget.map['menu'].length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return _menuview(widget.map['menu'][index]);
-                          }),
+                        itemCount: widget.map['menu'].length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return _menuview(widget.map['menu'][index]);
+                        },
+                      ),
                     ),
                   ),
                 ),
@@ -106,6 +109,16 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                 ),
               ],
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 60),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Locker1Page(),
+                  Locker2Page(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -123,7 +136,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
           height: 10,
           color: Colors.black,
           indent: 38,
-        )
+        ),
       ],
     );
   }

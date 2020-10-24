@@ -37,14 +37,15 @@ class _SettingPageState extends State<SettingPage> {
                   Padding(
                     padding: EdgeInsets.only(left: 177),
                     child: IconButton(
-                        icon: Icon(Icons.keyboard_arrow_right),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => NoticePage()));
-                        }),
-                  )
+                      icon: Icon(Icons.keyboard_arrow_right),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NoticePage()));
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -64,14 +65,15 @@ class _SettingPageState extends State<SettingPage> {
                   Padding(
                     padding: EdgeInsets.only(left: 215),
                     child: IconButton(
-                        icon: Icon(Icons.keyboard_arrow_right),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => InformationPage()));
-                        }),
-                  )
+                      icon: Icon(Icons.keyboard_arrow_right),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => InformationPage()));
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -91,14 +93,15 @@ class _SettingPageState extends State<SettingPage> {
                   Padding(
                     padding: EdgeInsets.only(left: 215),
                     child: IconButton(
-                        icon: Icon(Icons.keyboard_arrow_right),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AlarmPage()));
-                        }),
-                  )
+                      icon: Icon(Icons.keyboard_arrow_right),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AlarmPage()));
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -121,14 +124,15 @@ class _SettingPageState extends State<SettingPage> {
                   Padding(
                     padding: EdgeInsets.only(left: 177),
                     child: IconButton(
-                        icon: Icon(Icons.keyboard_arrow_right),
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ServicePage()));
-                        }),
-                  )
+                      icon: Icon(Icons.keyboard_arrow_right),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ServicePage()));
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),

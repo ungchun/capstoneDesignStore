@@ -22,13 +22,6 @@ class _OrderPageState extends State<OrderPage> {
         ),
       ),
       body: OrderList(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => InsertBreakdown()));
-        },
-        child: Icon(Icons.add),
-      ),
     );
   }
 }

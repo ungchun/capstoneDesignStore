@@ -19,29 +19,36 @@ class _StorePageState extends State<StorePage> {
         ),
       ),
       body: Center(
-          child: Container(
-        child: Column(
+        child: Container(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: <Widget>[
-                Text(
-                  '오늘 주문 받은 량 : $_ordercounter',
-                  style: TextStyle(color: Colors.black, fontSize: 25),
-                ),
-                Padding(padding: EdgeInsets.fromLTRB(0, 25, 15, 25)),
-                IconButton(
-                    icon: Icon(Icons.call_end),
-                    onPressed: _increaseordercounter),
-                Padding(padding: EdgeInsets.fromLTRB(0, 25, 50, 25)),
-              ]),
-            ]),
-      )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    '오늘 주문 받은 량 : $_ordercounter',
+                    style: TextStyle(color: Colors.black, fontSize: 25),
+                  ),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 25, 15, 25)),
+                  IconButton(
+                      icon: Icon(Icons.call_end),
+                      onPressed: _increaseordercounter),
+                  Padding(padding: EdgeInsets.fromLTRB(0, 25, 50, 25)),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
   void _increaseordercounter() {
-    setState(() {
-      _ordercounter++;
-    });
+    setState(
+      () {
+        _ordercounter++;
+      },
+    );
   }
 }
