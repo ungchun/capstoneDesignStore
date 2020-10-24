@@ -43,10 +43,10 @@ class _OrderListState extends State<OrderList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          FirebaseFirestore.instance.collection('order').doc('3').set({
-            "menu": ["아메리카노", "카페라떼"],
-            "count": [1, 5],
-            "price": ["4300", "3500"],
+          FirebaseFirestore.instance.collection('order').doc('1').set({
+            "menu": ["아메리카노", "카페라떼", '사과주스', '불고기 샌드위치'],
+            "count": [1, 5, 1, 1],
+            "price": [4300, 3500, 3500, 3800],
             "상태": "",
             "카페이름": "성훈카페",
             "cafeID": "2",

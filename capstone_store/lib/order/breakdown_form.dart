@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:capstone_store/order/detail_breakdown.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,8 +16,8 @@ class _OrderListItemState extends State<OrderListItem> {
   // firestore 데이터 읽어오기 test
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   int menuSize;
-  int price = 0;
-  String tempPrice = "";
+  var price = 0;
+  var tempPrice = 0;
   Stream stream;
 
   @override
@@ -24,8 +26,9 @@ class _OrderListItemState extends State<OrderListItem> {
     menuSize = widget.doc.data()['menu'].length;
 
     for (int i = 0; i < menuSize; i++) {
-      tempPrice = widget.doc.data()['price'][i];
-      price += int.parse(tempPrice);
+      tempPrice +=
+          widget.doc.data()['price'][i] * widget.doc.data()['count'][i];
+      // price += int.parse(tempPrice);
     }
     stream = FirebaseFirestore.instance
         .collection('cafe')
@@ -78,22 +81,28 @@ class _OrderListItemState extends State<OrderListItem> {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 2, 0, 0),
-                  child: Text(
-                    // "${widget.doc.data()['price']}",
-                    "$price 원",
-                    style: TextStyle(color: Colors.black),
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 2, 0, 0),
+                        child: Text(
+                          // "${widget.doc.data()['price']}",
+                          "$tempPrice 원",
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(0, 2, 20, 0),
+                        child: Text('${widget.doc.data()['상태']}'),
+                      ),
+                    ],
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 20, 0),
-                  child: Text('${widget.doc.data()['상태']}'),
-                ),
-              ],
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
