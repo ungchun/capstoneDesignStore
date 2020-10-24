@@ -43,8 +43,17 @@ class _OrderListState extends State<OrderList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => InsertBreakdown()));
+          FirebaseFirestore.instance.collection('order').doc('3').set({
+            "menu": ["아메리카노", "카페라떼"],
+            "count": [1, 5],
+            "price": ["4300", "3500"],
+            "상태": "",
+            "카페이름": "성훈카페",
+            "cafeID": "2",
+            "주문시간": "09:00"
+          });
+          // Navigator.push(context,
+          //     MaterialPageRoute(builder: (context) => InsertBreakdown()));
         },
         child: Icon(Icons.add),
       ),
