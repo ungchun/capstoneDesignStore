@@ -3,8 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'insert_breakdown.dart';
-
 class OrderList extends StatefulWidget {
   @override
   _OrderListState createState() => _OrderListState();
@@ -12,8 +10,6 @@ class OrderList extends StatefulWidget {
 
 class _OrderListState extends State<OrderList> {
   Stream stream;
-
-  Stream insert;
 
   @override
   void initState() {
@@ -43,9 +39,9 @@ class _OrderListState extends State<OrderList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          FirebaseFirestore.instance.collection('order').doc('1').set({
+          FirebaseFirestore.instance.collection('order').doc('2').set({
             "menu": ["아메리카노", "카페라떼", '사과주스', '불고기 샌드위치'],
-            "count": [1, 5, 1, 1],
+            "count": [4, 5, 5, 1],
             "price": [4300, 3500, 3500, 3800],
             "상태": "",
             "카페이름": "성훈카페",

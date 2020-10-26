@@ -1,5 +1,4 @@
-import 'package:capstone_store/locker/locker1_page.dart';
-import 'package:capstone_store/locker/locker2_page.dart';
+import 'package:capstone_store/locker/lockerselect.dart';
 import 'package:flutter/material.dart';
 
 class Detailbreakdown extends StatefulWidget {
@@ -144,10 +143,9 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
             Padding(
               padding: const EdgeInsets.only(top: 60),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Locker1Page(),
-                  Locker2Page(),
+                  LockerSelect(),
                 ],
               ),
             ),
