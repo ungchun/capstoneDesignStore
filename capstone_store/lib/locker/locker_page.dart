@@ -25,25 +25,14 @@ class _LockerPageState extends State<LockerPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (sat == '1번 보관함') {
-      return Scaffold(
-        body: StreamBuilder<QuerySnapshot>(
-          stream: stream,
-          builder:
-              (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (snapshot.data == null) return Text("");
-            return Locker1(snapshot.data.docs[0]);
-          },
-        ),
-      );
-    }
-
     return Scaffold(
       body: StreamBuilder<QuerySnapshot>(
         stream: stream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.data == null) return Text("");
-          return Locker2(snapshot.data.docs[1]);
+          return sat == '1번 보관함'
+              ? Locker1(snapshot.data.docs[0])
+              : Locker2(snapshot.data.docs[1]);
         },
       ),
     );

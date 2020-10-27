@@ -16,7 +16,6 @@ class _OrderListItemState extends State<OrderListItem> {
   // firestore 데이터 읽어오기 test
   FirebaseFirestore firestore = FirebaseFirestore.instance;
   int menuSize;
-  var price = 0;
   var tempPrice = 0;
   Stream stream;
 
