@@ -32,6 +32,7 @@ class _OrderListState extends State<OrderList> {
             itemCount: snapshot.data.size,
             itemBuilder: (BuildContext context, int index) {
               // 나중에 db count 값 넘기고, index 0 인 부분만 divider 하나 더 추가하기
+              // if (snapshot.data.docs[index].data()['상태'] == '대기')
               return OrderListItem(snapshot.data.docs[index]);
             },
           );

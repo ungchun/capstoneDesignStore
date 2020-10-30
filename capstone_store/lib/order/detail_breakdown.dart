@@ -1,9 +1,10 @@
 import 'package:capstone_store/locker/lockerselect.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Detailbreakdown extends StatefulWidget {
-  var map = <String, dynamic>{};
-  Detailbreakdown(this.map);
+  final QueryDocumentSnapshot doc;
+  Detailbreakdown(this.doc);
 
   _DetailbreakdownState createState() => _DetailbreakdownState();
 }
@@ -15,8 +16,9 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
   void initState() {
     super.initState();
 
-    for (var i = 0; i < widget.map['price'].length; i++) {
-      tempPrice += widget.map['price'][i] * widget.map['count'][i];
+    for (var i = 0; i < widget.doc.data()['price'].length; i++) {
+      tempPrice +=
+          widget.doc.data()['price'][i] * widget.doc.data()['count'][i];
     }
   }
 
@@ -38,14 +40,14 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 30, 310, 0),
               child: Text(
-                '${widget.map['카페이름']}',
+                '${widget.doc.data()['카페이름']}',
                 style: TextStyle(fontSize: 20),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(350, 30, 0, 0),
               child: Text(
-                '${widget.map['주문시간']}',
+                '${widget.doc.data()['주문시간']}',
                 style: TextStyle(fontSize: 18),
               ),
             ),
@@ -59,9 +61,9 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                       height: 250,
                       child: ListView.builder(
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: widget.map['menu'].length,
+                        itemCount: widget.doc.data()['menu'].length,
                         itemBuilder: (BuildContext context, int index) {
-                          return _menuview(widget.map['menu'][index]);
+                          return _menuview(widget.doc.data()['menu'][index]);
                         },
                       ),
                     ),
@@ -74,9 +76,9 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                       height: 250,
                       child: ListView.builder(
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: widget.map['count'].length,
+                        itemCount: widget.doc.data()['count'].length,
                         itemBuilder: (BuildContext context, int index) {
-                          return _countview(widget.map['count'][index]);
+                          return _countview(widget.doc.data()['count'][index]);
                         },
                       ),
                     ),
@@ -104,10 +106,11 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                       height: 250,
                       child: ListView.builder(
                         physics: NeverScrollableScrollPhysics(),
-                        itemCount: widget.map['price'].length,
+                        itemCount: widget.doc.data()['price'].length,
                         itemBuilder: (BuildContext context, int index) {
-                          return _sumpriceview(widget.map['price'][index] *
-                              widget.map['count'][index]);
+                          return _sumpriceview(widget.doc.data()['price']
+                                  [index] *
+                              widget.doc.data()['count'][index]);
                         },
                       ),
                     ),
@@ -141,11 +144,11 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 60),
+              padding: const EdgeInsets.only(top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  LockerSelect(),
+                  LockerSelect(widget.doc),
                 ],
               ),
             ),

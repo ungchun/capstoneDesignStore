@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:capstone_store/order/detail_breakdown.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -114,7 +112,7 @@ class _OrderListItemState extends State<OrderListItem> {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  Detailbreakdown(widget.doc.data())));
+                                  Detailbreakdown(widget.doc)));
                       // test();
                     },
                     child: Text("주문상세"),

@@ -2,9 +2,10 @@ import 'package:capstone_store/locker/locker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'locker_page.dart';
-
 class LockerSelect extends StatefulWidget {
+  final QueryDocumentSnapshot doc;
+  LockerSelect(this.doc);
+
   @override
   _LockerSelectState createState() => _LockerSelectState();
 }
@@ -87,13 +88,38 @@ class _LockerSelectState extends State<LockerSelect> {
                                 .data()['state'] ==
                             '가능'
                         ? () {
+                            FirebaseFirestore.instance
+                                .collection("locker")
+                                .doc(
+                                    "${snapshot.data.docs[locker.indexOf(dropdownValue)].id}")
+                                .update(
+                              {"menu": widget.doc.id},
+                            );
+                            FirebaseFirestore.instance
+                                .collection("locker")
+                                .doc(
+                                    "${snapshot.data.docs[locker.indexOf(dropdownValue)].id}")
+                                .update(
+                              {"state": '불가능'},
+                            );
+                            FirebaseFirestore.instance
+                                .collection("order")
+                                .doc("${widget.doc.id}")
+                                .update(
+                              {
+                                "상태": snapshot
+                                    .data.docs[locker.indexOf(dropdownValue)].id
+                              },
+                            );
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
                                       // LockerPage(dropdownValue),
-                                      Locker(snapshot.data
-                                          .docs[locker.indexOf(dropdownValue)]),
+                                      Locker(
+                                          snapshot.data.docs[
+                                              locker.indexOf(dropdownValue)],
+                                          widget.doc),
                                 ));
                           }
                         : null,
@@ -108,6 +134,21 @@ class _LockerSelectState extends State<LockerSelect> {
                           fontSize: 20,
                         )),
                   ),
+                  FloatingActionButton(onPressed: () {
+                    FirebaseFirestore.instance
+                        .collection("locker")
+                        .doc("1")
+                        .update(
+                      {"state": '가능'},
+                    );
+
+                    FirebaseFirestore.instance
+                        .collection("locker")
+                        .doc("2")
+                        .update(
+                      {"state": '가능'},
+                    );
+                  }),
                 ],
               )
             ],
