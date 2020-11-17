@@ -38,7 +38,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 30, 310, 0),
+              padding: const EdgeInsets.fromLTRB(15, 30, 290, 0),
               child: Text(
                 '${widget.doc.data()['카페이름']}',
                 style: TextStyle(fontSize: 20),

@@ -52,7 +52,7 @@ class _OrderListItemState extends State<OrderListItem> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
                   child: Text(
-                    "회원 번호 : ${widget.doc.id}",
+                    "주문 번호 : ${widget.doc.id}",
                     style: TextStyle(
                         color: Colors.grey,
                         fontSize: 15,
@@ -74,7 +74,7 @@ class _OrderListItemState extends State<OrderListItem> {
                 "${widget.doc.data()['menu']}",
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 30,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
             ),

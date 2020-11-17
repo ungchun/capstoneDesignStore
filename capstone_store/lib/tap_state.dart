@@ -1,3 +1,4 @@
+import 'package:capstone_store/notice.dart';
 import 'package:capstone_store/order/order_page.dart';
 import 'package:capstone_store/store/store_page.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,11 @@ class TapPage extends StatefulWidget {
 class _TapPageState extends State<TapPage> {
   int _selectedIndex = 0;
 
-  List _pages = [StorePage(), OrderPage(), SettingPage()];
+  List _pages = [
+    StorePage(),
+    OrderPage(),
+    SettingPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,29 +26,33 @@ class _TapPageState extends State<TapPage> {
         child: _pages[_selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.cyan,
-          onTap: _onItemTapped,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                title: Text(
-                  'Home',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                )),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.format_list_bulleted),
-                title: Text(
-                  'Order List',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                )),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                title: Text(
-                  'Settings',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-                )),
-          ]),
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.cyan,
+        onTap: _onItemTapped,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text(
+              'Home',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.format_list_bulleted),
+            title: Text(
+              'Order List',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            title: Text(
+              'Settings',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

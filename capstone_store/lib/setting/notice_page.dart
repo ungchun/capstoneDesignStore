@@ -1,3 +1,4 @@
+import 'package:capstone_store/notice.dart';
 import 'package:flutter/material.dart';
 
 class NoticePage extends StatefulWidget {
@@ -16,14 +17,7 @@ class _NoticePageState extends State<NoticePage> {
           style: TextStyle(fontSize: 25),
         ),
       ),
-      body: ListView(
-        children: [
-          ListTile(
-            leading: Icon(Icons.accessibility),
-            title: Text('man'),
-          )
-        ],
-      ),
+      body: NoticeAlarmPage(title: 'hello'),
     );
   }
 }
