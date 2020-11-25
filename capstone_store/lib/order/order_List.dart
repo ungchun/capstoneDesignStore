@@ -1,5 +1,6 @@
 import 'package:capstone_store/order/breakdown_form.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -41,6 +42,7 @@ class _OrderListState extends State<OrderList> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          idx++;
           FirebaseFirestore.instance.collection('order').doc('$idx').set(
             {
               "menu": ["아메리카노", "카페라떼", '사과주스', '불고기 샌드위치'],
@@ -49,7 +51,7 @@ class _OrderListState extends State<OrderList> {
               "상태": "대기",
               "카페이름": "성훈카페",
               "cafeID": "2",
-              "주문시간": "09:00"
+              "주문시간": "${formatDate(DateTime.now(), [HH, ':', nn, ':', ss])}"
             },
           );
         },

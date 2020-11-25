@@ -1,6 +1,7 @@
 import 'package:capstone_store/locker/lockerselect.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Detailbreakdown extends StatefulWidget {
   final QueryDocumentSnapshot doc;
@@ -40,12 +41,12 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 30, 290, 0),
               child: Text(
-                '${widget.doc.data()['카페이름']}',
+                '주문 번호 : ${widget.doc.id}',
                 style: TextStyle(fontSize: 20),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(350, 30, 0, 0),
+              padding: const EdgeInsets.fromLTRB(330, 30, 0, 0),
               child: Text(
                 '${widget.doc.data()['주문시간']}',
                 style: TextStyle(fontSize: 18),
@@ -84,21 +85,6 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                     ),
                   ),
                 ),
-                // Expanded(
-                //   child: Padding(
-                //     padding: const EdgeInsets.only(top: 50),
-                //     child: Container(
-                //       height: 250,
-                //       child: ListView.builder(
-                //         physics: NeverScrollableScrollPhysics(),
-                //         itemCount: widget.map['price'].length,
-                //         itemBuilder: (BuildContext context, int index) {
-                //           return _priceview(widget.map['price'][index]);
-                //         },
-                //       ),
-                //     ),
-                //   ),
-                // ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(0, 50, 15, 0),
@@ -137,7 +123,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 20, 50, 0),
                   child: Text(
-                    '$tempPrice 원',
+                    '${NumberFormat('###,###,###,###').format(tempPrice).replaceAll(' ', '')} 원',
                     style: TextStyle(fontSize: 25),
                   ),
                 ),
@@ -226,7 +212,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Text(
-          '$doc 원',
+          '${NumberFormat('###,###,###,###').format(doc).replaceAll(' ', '')} 원',
           style: TextStyle(
             fontSize: 18,
           ),

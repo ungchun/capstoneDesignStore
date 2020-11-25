@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class OrderCounter extends StatefulWidget {
@@ -6,7 +7,15 @@ class OrderCounter extends StatefulWidget {
 }
 
 class _OrderCounterState extends State<OrderCounter> {
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  Stream stream;
   var _ordercounter = 0;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(

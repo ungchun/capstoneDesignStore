@@ -13,7 +13,6 @@ class _NoticeAlarmPageState extends State<NoticeAlarmPage> {
   var _flutterLocalNotificationsPlugin;
 
   void initState() {
-    // TODO: implement initState
     super.initState();
     var initializationSettingsAndroid =
         AndroidInitializationSettings('@mipmap/ic_launcher');

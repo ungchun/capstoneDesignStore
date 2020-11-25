@@ -2,15 +2,14 @@ import 'package:capstone_store/locker/locker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class LockerSelect extends StatefulWidget {
+class LockerSel2 extends StatefulWidget {
   final QueryDocumentSnapshot doc;
-  LockerSelect(this.doc);
-
+  LockerSel2(this.doc);
   @override
-  _LockerSelectState createState() => _LockerSelectState();
+  _LockerSel2State createState() => _LockerSel2State();
 }
 
-class _LockerSelectState extends State<LockerSelect> {
+class _LockerSel2State extends State<LockerSel2> {
   String dropdownValue = '1번 보관함';
   Stream stream;
 
@@ -151,7 +150,7 @@ class _LockerSelectState extends State<LockerSelect> {
                     );
                   }),
                 ],
-              )
+              ),
             ],
           );
         },

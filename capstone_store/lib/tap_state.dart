@@ -1,4 +1,3 @@
-import 'package:capstone_store/notice.dart';
 import 'package:capstone_store/order/order_page.dart';
 import 'package:capstone_store/store/store_page.dart';
 import 'package:flutter/material.dart';
