@@ -10,7 +10,7 @@ class OrderList extends StatefulWidget {
 
 class _OrderListState extends State<OrderList> {
   Stream stream;
-
+  int idx = 0;
   @override
   void initState() {
     super.initState();
@@ -31,29 +31,27 @@ class _OrderListState extends State<OrderList> {
           return ListView.builder(
             itemCount: snapshot.data.size,
             itemBuilder: (BuildContext context, int index) {
-              // 나중에 db count 값 넘기고, index 0 인 부분만 divider 하나 더 추가하기
-              // if (snapshot.data.docs[index].data()['상태'] == '대기')
-              return OrderListItem(snapshot.data.docs[index]);
-              // return (snapshot.data.docs[index].data()['상태'] == '대기'
-              //     ? OrderListItem(snapshot.data.docs[index])
-              //     : Text(""));
+              idx = index + 1;
+              return (snapshot.data.docs[index].data()['상태'] == '대기'
+                  ? OrderListItem(snapshot.data.docs[index])
+                  : SizedBox.shrink());
             },
           );
         },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          FirebaseFirestore.instance.collection('order').doc('2').set({
-            "menu": ["아메리카노", "카페라떼", '사과주스', '불고기 샌드위치'],
-            "count": [4, 5, 5, 1],
-            "price": [4300, 3500, 3500, 3800],
-            "상태": "",
-            "카페이름": "성훈카페",
-            "cafeID": "2",
-            "주문시간": "09:00"
-          });
-          // Navigator.push(context,
-          //     MaterialPageRoute(builder: (context) => InsertBreakdown()));
+          FirebaseFirestore.instance.collection('order').doc('$idx').set(
+            {
+              "menu": ["아메리카노", "카페라떼", '사과주스', '불고기 샌드위치'],
+              "count": [4, 5, 5, 1],
+              "price": [4300, 3500, 3500, 3800],
+              "상태": "대기",
+              "카페이름": "성훈카페",
+              "cafeID": "2",
+              "주문시간": "09:00"
+            },
+          );
         },
         child: Icon(Icons.add),
       ),
