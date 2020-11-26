@@ -34,7 +34,8 @@ dependencies:
   firebase_storage: ^4.0.0     # FireStorage
   date_format: ^1.0.6
   intl: ^0.16.1
-
+  flutter_svg: ^0.17.4
+  provider: ^4.3.1
 
 dev_dependencies:
   flutter_test:
