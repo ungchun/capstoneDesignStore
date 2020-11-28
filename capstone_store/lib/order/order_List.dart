@@ -60,9 +60,8 @@ class _OrderListState extends State<OrderList> {
             itemCount: snapshot.data.size,
             itemBuilder: (BuildContext context, int index) {
               _arry[indx++ % 2] = index;
-              if (_arry[indx % 2] != _arry[(indx + 1) % 2] && indx > index) {
-                debugPrint(indx.toString());
-                debugPrint(index.toString());
+              if (_arry[indx % 2] != _arry[(indx + 1) % 2] &&
+                  indx > index + 2) {
                 _showNotification();
               }
               return (snapshot.data.docs[index].data()['상태'] != '제작완료'
