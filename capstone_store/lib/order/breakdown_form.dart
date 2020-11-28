@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 
+import '../size_config.dart';
+
 class OrderListItem extends StatefulWidget {
   final QueryDocumentSnapshot doc;
   OrderListItem(this.doc);
@@ -37,6 +39,7 @@ class _OrderListItemState extends State<OrderListItem> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return StreamBuilder<QuerySnapshot>(
       stream: stream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -97,8 +100,8 @@ class _OrderListItemState extends State<OrderListItem> {
                       Padding(
                         padding: EdgeInsets.fromLTRB(0, 2, 20, 0),
                         child: widget.doc.data()['상태'] == "대기"
-                            ? Text("비어 있음")
-                            : Text('${widget.doc.data()['상태']}번 보관함'),
+                            ? Text("대기 중")
+                            : Text('${widget.doc.data()['상태']}'),
                       ),
                     ],
                   ),
@@ -108,6 +111,27 @@ class _OrderListItemState extends State<OrderListItem> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                ((widget.doc.data()['상태'] != "대기" &&
+                        widget.doc.data()['상태'] != "제작완료")
+                    ? Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: getProportionateScreenWidth(18)),
+                        child: RaisedButton(
+                          onPressed: () {
+                            FirebaseFirestore.instance
+                                .collection('order')
+                                .doc('${widget.doc.id}')
+                                .update(
+                              {"상태": "제작완료"},
+                            );
+                          },
+                          child: Text(
+                            '완료!',
+                            style: TextStyle(),
+                          ),
+                        ),
+                      )
+                    : SizedBox.shrink()),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
                   child: RaisedButton(

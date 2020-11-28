@@ -43,22 +43,12 @@ class _NoticeAlarmPageState extends State<NoticeAlarmPage> {
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             RaisedButton(
               onPressed: _showNotification,
               child: Text('Show Notification'),
-            ),
-            RaisedButton(
-              onPressed: _dailyAtTimeNotification,
-              child: Text('Daily At Time Notification'),
-            ),
-            RaisedButton(
-              onPressed: _repeatNotification,
-              child: Text('Repeat Notification'),
             ),
           ],
         ),
@@ -78,43 +68,6 @@ class _NoticeAlarmPageState extends State<NoticeAlarmPage> {
       0,
       '단일 Notification',
       '단일 Notification 내용',
-      detail,
-      payload: 'Hello Flutter',
-    );
-  }
-
-  Future<void> _dailyAtTimeNotification() async {
-    var time = Time(22, 40, 0);
-    var android = AndroidNotificationDetails(
-        'your channel id', 'your channel name', 'your channel description',
-        importance: Importance.Max, priority: Priority.High);
-
-    var ios = IOSNotificationDetails();
-    var detail = NotificationDetails(android, ios);
-
-    await _flutterLocalNotificationsPlugin.showDailyAtTime(
-      0,
-      '매일 똑같은 시간의 Notification',
-      '매일 똑같은 시간의 Notification 내용',
-      time,
-      detail,
-      payload: 'Hello Flutter',
-    );
-  }
-
-  Future<void> _repeatNotification() async {
-    var android = AndroidNotificationDetails(
-        'your channel id', 'your channel name', 'your channel description',
-        importance: Importance.Max, priority: Priority.High);
-
-    var ios = IOSNotificationDetails();
-    var detail = NotificationDetails(android, ios);
-
-    await _flutterLocalNotificationsPlugin.periodicallyShow(
-      0,
-      '반복 Notification',
-      '반복 Notification 내용',
-      RepeatInterval.EveryMinute,
       detail,
       payload: 'Hello Flutter',
     );

@@ -134,7 +134,9 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  LockerSelect(widget.doc),
+                  (widget.doc.data()['상태'] == '제작완료')
+                      ? SizedBox.shrink()
+                      : LockerSelect(widget.doc),
                 ],
               ),
             ),

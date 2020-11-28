@@ -4,6 +4,8 @@ import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
 class OrderList extends StatefulWidget {
   @override
   _OrderListState createState() => _OrderListState();
@@ -12,6 +14,10 @@ class OrderList extends StatefulWidget {
 class _OrderListState extends State<OrderList> {
   Stream stream;
   int idx = 0;
+  List<int> _arry = List<int>(2);
+  int indx = 0;
+  var _flutterLocalNotificationsPlugin;
+
   @override
   void initState() {
     super.initState();
@@ -20,6 +26,27 @@ class _OrderListState extends State<OrderList> {
         .collection('order')
         .orderBy('주문시간', descending: false)
         .snapshots();
+
+    var initializationSettingsAndroid =
+        AndroidInitializationSettings('@mipmap/ic_launcher');
+    var initializationSettingsIOS = IOSInitializationSettings();
+
+    var initializationSettings = InitializationSettings(
+        initializationSettingsAndroid, initializationSettingsIOS);
+
+    _flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+    _flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: onSelectNotification);
+  }
+
+  Future<void> onSelectNotification(String payload) async {
+    debugPrint("$payload");
+    showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+              title: Text('Notification Payload'),
+              content: Text('Payload: $payload'),
+            ));
   }
 
   @override
@@ -32,31 +59,36 @@ class _OrderListState extends State<OrderList> {
           return ListView.builder(
             itemCount: snapshot.data.size,
             itemBuilder: (BuildContext context, int index) {
-              idx = index + 1;
-              return (snapshot.data.docs[index].data()['상태'] == '대기'
+              _arry[indx++ % 2] = index;
+              if (_arry[indx % 2] != _arry[(indx + 1) % 2] && indx > index) {
+                debugPrint(indx.toString());
+                debugPrint(index.toString());
+                _showNotification();
+              }
+              return (snapshot.data.docs[index].data()['상태'] != '제작완료'
                   ? OrderListItem(snapshot.data.docs[index])
                   : SizedBox.shrink());
             },
           );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          idx++;
-          FirebaseFirestore.instance.collection('order').doc('$idx').set(
-            {
-              "menu": ["아메리카노", "카페라떼", '사과주스', '불고기 샌드위치'],
-              "count": [4, 5, 5, 1],
-              "price": [4300, 3500, 3500, 3800],
-              "상태": "대기",
-              "카페이름": "성훈카페",
-              "cafeID": "2",
-              "주문시간": "${formatDate(DateTime.now(), [HH, ':', nn, ':', ss])}"
-            },
-          );
-        },
-        child: Icon(Icons.add),
-      ),
+    );
+  }
+
+  Future<void> _showNotification() async {
+    var android = AndroidNotificationDetails(
+        'your channel id', 'your channel name', 'your channel description',
+        importance: Importance.Max, priority: Priority.High);
+
+    var ios = IOSNotificationDetails();
+    var detail = NotificationDetails(android, ios);
+
+    await _flutterLocalNotificationsPlugin.show(
+      0,
+      '새로운 주문 안내',
+      '새로운 주문이 왔습니다.',
+      detail,
+      payload: '비카주',
     );
   }
 }

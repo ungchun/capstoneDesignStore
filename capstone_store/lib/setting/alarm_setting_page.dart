@@ -1,3 +1,4 @@
+import 'package:capstone_store/123.dart';
 import 'package:flutter/material.dart';
 
 class AlarmPage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _AlarmPageState extends State<AlarmPage> {
           style: TextStyle(fontSize: 25),
         ),
       ),
-      body: Text('Alarm_Page'),
+      body: Firebase(),
     );
   }
 }

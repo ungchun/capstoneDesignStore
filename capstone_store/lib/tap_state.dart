@@ -2,6 +2,7 @@ import 'package:capstone_store/order/order_page.dart';
 import 'package:capstone_store/store/store_page.dart';
 import 'package:flutter/material.dart';
 
+import 'order/comple_page.dart';
 import 'setting/setting_page.dart';
 
 class TapPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class _TapPageState extends State<TapPage> {
   List _pages = [
     StorePage(),
     OrderPage(),
+    CompletedOrderPage(),
     SettingPage(),
   ];
 
@@ -27,6 +29,7 @@ class _TapPageState extends State<TapPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.cyan,
+        unselectedItemColor: Colors.black,
         onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -40,6 +43,13 @@ class _TapPageState extends State<TapPage> {
             icon: Icon(Icons.format_list_bulleted),
             title: Text(
               'Order List',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            ),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.format_list_bulleted),
+            title: Text(
+              'Completed List',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
           ),
