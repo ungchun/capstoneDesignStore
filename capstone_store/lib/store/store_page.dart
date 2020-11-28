@@ -1,5 +1,4 @@
 import 'package:capstone_store/size_config.dart';
-import 'package:capstone_store/store/order_counter.dart';
 import 'package:flutter/material.dart';
 
 class StorePage extends StatefulWidget {
@@ -23,6 +22,40 @@ class _StorePageState extends State<StorePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              SizedBox(
+                height: getProportionateScreenWidth(20),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: SizeConfig.screenWidth * 0.6,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Stack(
+                        children: [
+                          Text.rich(TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "계명대",
+                                style: TextStyle(
+                                  fontSize: getProportionateScreenWidth(18),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              TextSpan(text: "test")
+                            ],
+                          )),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: getProportionateScreenWidth(20)),
