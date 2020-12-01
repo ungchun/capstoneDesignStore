@@ -25,6 +25,7 @@ class _FirebaseState extends State<Firebase> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   void firebaseCloudMessaging_Listeners() {
     if (Platform.isIOS) iOS_Permission();
 
@@ -45,6 +46,7 @@ class _FirebaseState extends State<Firebase> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   void iOS_Permission() {
     _firebaseMessaging.requestNotificationPermissions(
         IosNotificationSettings(sound: true, badge: true, alert: true));

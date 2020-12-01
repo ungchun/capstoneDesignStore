@@ -60,7 +60,7 @@ class _OrderListItemState extends State<OrderListItem> {
                     "주문 번호 : ${widget.doc.id}",
                     style: TextStyle(
                         color: Colors.grey,
-                        fontSize: 15,
+                        fontSize: getProportionateScreenWidth(15),
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -79,7 +79,7 @@ class _OrderListItemState extends State<OrderListItem> {
                 "${widget.doc.data()['menu']}",
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 25,
+                    fontSize: getProportionateScreenWidth(25),
                     fontWeight: FontWeight.bold),
               ),
             ),

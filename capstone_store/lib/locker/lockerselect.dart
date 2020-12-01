@@ -1,4 +1,5 @@
 import 'package:capstone_store/locker/locker.dart';
+import 'package:capstone_store/size_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ class _LockerSelectState extends State<LockerSelect> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Container(
       child: StreamBuilder<QuerySnapshot>(
         stream: stream,
@@ -58,7 +60,7 @@ class _LockerSelectState extends State<LockerSelect> {
                         child: Text(
                           value,
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: getProportionateScreenWidth(22),
                             // color: snapshot
                             //             .data
                             //             .docs[
@@ -132,7 +134,7 @@ class _LockerSelectState extends State<LockerSelect> {
                     textColor: Colors.white,
                     child: Text("선택 완료".toUpperCase(),
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: getProportionateScreenWidth(20),
                         )),
                   ),
                   FloatingActionButton(onPressed: () {

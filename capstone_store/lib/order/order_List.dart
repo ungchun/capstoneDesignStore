@@ -1,6 +1,5 @@
 import 'package:capstone_store/order/breakdown_form.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -61,7 +60,7 @@ class _OrderListState extends State<OrderList> {
             itemBuilder: (BuildContext context, int index) {
               _arry[indx++ % 2] = index;
               if (_arry[indx % 2] != _arry[(indx + 1) % 2] &&
-                  indx > index + 2) {
+                  indx > snapshot.data.size) {
                 _showNotification();
               }
               return (snapshot.data.docs[index].data()['상태'] != '제작완료'

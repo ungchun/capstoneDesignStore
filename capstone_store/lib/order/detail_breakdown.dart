@@ -1,4 +1,5 @@
 import 'package:capstone_store/locker/lockerselect.dart';
+import 'package:capstone_store/size_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -24,13 +25,14 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
   }
 
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(
           '상세 내역',
           style: TextStyle(
-            fontSize: 25,
+            fontSize: getProportionateScreenWidth(25),
           ),
         ),
       ),
@@ -39,17 +41,17 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 30, 290, 0),
+              padding: const EdgeInsets.fromLTRB(15, 30, 250, 0),
               child: Text(
                 '주문 번호 : ${widget.doc.id}',
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(fontSize: getProportionateScreenWidth(20)),
               ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(330, 30, 0, 0),
               child: Text(
                 '${widget.doc.data()['주문시간']}',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: getProportionateScreenWidth(18)),
               ),
             ),
             Row(
@@ -57,7 +59,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 50, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
                     child: Container(
                       height: 250,
                       child: ListView.builder(
@@ -87,7 +89,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                 ),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 50, 15, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 50, 5, 0),
                     child: Container(
                       height: 250,
                       child: ListView.builder(
@@ -107,8 +109,8 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
             Divider(
               height: 0,
               thickness: 5,
-              indent: 38,
-              endIndent: 38,
+              indent: 30,
+              endIndent: 30,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -117,14 +119,16 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
                   padding: const EdgeInsets.fromLTRB(50, 20, 0, 0),
                   child: Text(
                     '총 합',
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(25),
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(0, 20, 50, 0),
                   child: Text(
                     '${NumberFormat('###,###,###,###').format(tempPrice).replaceAll(' ', '')} 원',
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(fontSize: getProportionateScreenWidth(25)),
                   ),
                 ),
               ],
@@ -152,7 +156,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
         Text(
           '$doc',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: getProportionateScreenWidth(18),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -168,13 +172,14 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
     );
   }
 
+  // ignore: unused_element
   Widget _priceview(dynamic doc) {
     return Column(
       children: [
         Text(
           '$doc 원',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: getProportionateScreenWidth(18),
           ),
         ),
         // Divider(
@@ -195,7 +200,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
         Text(
           '$doc 개',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: getProportionateScreenWidth(18),
           ),
         ),
         // Divider(
@@ -216,7 +221,7 @@ class _DetailbreakdownState extends State<Detailbreakdown> {
         Text(
           '${NumberFormat('###,###,###,###').format(doc).replaceAll(' ', '')} 원',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: getProportionateScreenWidth(18),
           ),
         ),
         // Divider(

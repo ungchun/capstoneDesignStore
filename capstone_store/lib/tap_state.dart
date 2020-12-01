@@ -1,4 +1,5 @@
 import 'package:capstone_store/order/order_page.dart';
+import 'package:capstone_store/size_config.dart';
 import 'package:capstone_store/store/store_page.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,7 @@ class _TapPageState extends State<TapPage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       body: Center(
         child: _pages[_selectedIndex],
@@ -36,28 +38,36 @@ class _TapPageState extends State<TapPage> {
             icon: Icon(Icons.home),
             title: Text(
               'Home',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: getProportionateScreenWidth(15)),
             ),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.format_list_bulleted),
             title: Text(
               'Order List',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: getProportionateScreenWidth(15)),
             ),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.format_list_bulleted),
             title: Text(
               'Completed List',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: getProportionateScreenWidth(15)),
             ),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             title: Text(
               'Settings',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: getProportionateScreenWidth(15)),
             ),
           ),
         ],

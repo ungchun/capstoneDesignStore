@@ -2,6 +2,8 @@ import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../size_config.dart';
+
 class Locker extends StatefulWidget {
   final QueryDocumentSnapshot doc1;
   final QueryDocumentSnapshot doc2;
@@ -22,12 +24,13 @@ class _LockerState extends State<Locker> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(
           '${widget.doc1.id} 번 보관함',
           style: TextStyle(
-            fontSize: 22,
+            fontSize: getProportionateScreenWidth(18),
           ),
         ),
       ),
@@ -43,7 +46,7 @@ class _LockerState extends State<Locker> {
                   Text(
                     '${widget.doc1.id} 번 보관함 선택 완료!',
                     style: TextStyle(
-                      fontSize: 30,
+                      fontSize: getProportionateScreenWidth(30),
                     ),
                   ),
                 ],

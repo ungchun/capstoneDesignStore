@@ -15,7 +15,7 @@ class _StorePageState extends State<StorePage> {
         centerTitle: true,
         title: Text(
           '가게 상황',
-          style: TextStyle(fontSize: getProportionateScreenWidth(20)),
+          style: TextStyle(fontSize: getProportionateScreenWidth(25)),
         ),
       ),
       body: SafeArea(
